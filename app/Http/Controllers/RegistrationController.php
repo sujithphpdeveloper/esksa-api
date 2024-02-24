@@ -14,7 +14,7 @@ class RegistrationController extends Controller
             'parent_name' => 'required|max:255',
             'child_name' => 'required|max:255',
             'age' => 'required',
-            'camp' => 'required|in:football,multi',
+            'camp' => 'required|in:football,multi-sport',
             'email' => 'required|email',
             'phone' => 'required',
         ];
