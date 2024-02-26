@@ -16,6 +16,7 @@
     <tr><td>Parent Name</td><td>{{ $registration->parent_name }}</td></tr>
     <tr><td>Child Name</td><td>{{ $registration->child_name }}</td></tr>
     <tr><td>Age</td><td>{{ $registration->age }}</td></tr>
+    <tr><td>Medical Condition</td><td>{{ $registration->medical }}</td></tr>
     <tr><td>Email</td><td>{{ $registration->email }}</td></tr>
     <tr><td>Phone</td><td>{{ $registration->phone }}</td></tr>
     <tr><td>Camp</td><td>{{ $registration->camp==='football'?'Football':'Multi Sport' }}</td></tr>
