@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NotifyMail;
+use App\Mail\NotifyParent;
 use Illuminate\Http\Request;
 use App\Models\Registrations;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 
 class RegistrationController extends Controller
 {
     public function store(Request $request)
     {
+
         $validations = [
             'parent_name' => 'required|max:255',
             'child_name' => 'required|max:255',
@@ -49,6 +53,9 @@ class RegistrationController extends Controller
             $registration->location = $request->location_football;
         }
         $registration->save();
+
+        Mail::to('sujith.phpdeveloper@gmail.com')->queue(new NotifyMail($registration));
+        Mail::to($registration->email)->queue(new NotifyParent($registration));
         return response()->json([
             'status' => true,
             'message' => "Registration Completed Successfully"
