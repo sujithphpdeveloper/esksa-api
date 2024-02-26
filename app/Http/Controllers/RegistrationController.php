@@ -54,7 +54,7 @@ class RegistrationController extends Controller
         }
         $registration->save();
 
-        Mail::to('sujith.phpdeveloper@gmail.com')->queue(new NotifyMail($registration));
+        Mail::to('info@elitesportsksa.com')->queue(new NotifyMail($registration));
         Mail::to($registration->email)->queue(new NotifyParent($registration));
         return response()->json([
             'status' => true,
