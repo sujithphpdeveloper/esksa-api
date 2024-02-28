@@ -11,7 +11,7 @@
 <body>
 
 <h2>Registration Details</h2>
-<table border="1px solid">
+<table style="border:1px solid #000000;" cellpadding="2" cellspacing="0">
     <tr><th>Registration Number </th>
         <th>Parent Name</th>
         <th>Child Name</th>
@@ -28,9 +28,9 @@
         <td>{{ $registration->parent_name }}</td>
         <td>{{ $registration->child_name }}</td>
         <td>{{ $registration->age }}</td>
-        <td>{{ $registration->medical }}</td>
         <td>{{ $registration->email }}</td>
         <td>{{ $registration->phone }}</td>
+        <td>{{ $registration->medical }}</td>
         <td>{{ $registration->camp==='football'?'Football':'Multi Sport' }}</td>
         <td>
             @if($registration->location === 'aldenham')
