@@ -11,7 +11,7 @@
     $campName = $registration->camp==='football'?'Football Camp':'Multi Sport Camp';
     $locationName = $arrivalTime = $food = $collection = "";
     if($registration->location === 'beachhall') {
-        $locationName = "Beach Hall School";
+        $locationName = "Beech Hall School Riyadh";
         $arrivalTime = "8:45am – 9.00am";
         $collection = "3:15pm – 3:30pm";
         $food = "Breakfast and Lunch will be provided as part of the registration. Just a water bottle will be required (refillable water is available)";
