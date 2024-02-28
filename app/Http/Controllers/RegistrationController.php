@@ -21,11 +21,13 @@ class RegistrationController extends Controller
             'camp' => 'required|in:football,multi-sport',
             'email' => 'required|email',
             'phone' => 'required',
+            'accept_terms' => 'required'
         ];
 
         $messages = [
             'location_football.required' => 'Please select a location',
             'location_multi.required' => 'Please select a location',
+            'accept_terms.required' => 'Please accept the terms and conditions'
         ];
         if(isset($request->camp) && $request->camp === 'football') {
             $validations['location_football'] = 'required';
@@ -54,8 +56,8 @@ class RegistrationController extends Controller
         }
         $registration->save();
 
-        //Mail::to('info@elitesportsksa.com')->queue(new NotifyMail($registration));
-        Mail::to('sujith.phpdeveloper@gmail.com')->queue(new NotifyMail($registration));
+        Mail::to('info@elitesportsksa.com')->queue(new NotifyMail($registration));
+        //Mail::to('sujith.phpdeveloper@gmail.com')->queue(new NotifyMail($registration));
         Mail::to($registration->email)->queue(new NotifyParent($registration));
         return response()->json([
             'status' => true,
