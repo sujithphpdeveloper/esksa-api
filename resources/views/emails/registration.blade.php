@@ -33,8 +33,8 @@
         <td>{{ $registration->medical }}</td>
         <td>{{ $registration->camp==='football'?'Football':'Multi Sport' }}</td>
         <td>
-            @if($registration->location === 'aldenham')
-                Aldenham Prep School, Riyadh
+            @if($registration->location === 'beachhall')
+                Beech Hall School Riyadh
             @elseif($registration->location === 'reigate')
                 Reigate Grammar School Riyadh
             @elseif($registration->location === 'kings')
