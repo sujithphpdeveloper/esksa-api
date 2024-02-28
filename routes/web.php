@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', [RegistrationController::class, 'store']);
+Route::get('/', [RegistrationController::class, 'store']);
 //
 //
 //Route::get('/', function () {

@@ -30,7 +30,7 @@ class NotifyParent extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Thank you for registering for the Elite Sports Academy',
+            subject: 'CONGRATULATIONS, Registration complete for Elite Holiday Camp',
         );
     }
 

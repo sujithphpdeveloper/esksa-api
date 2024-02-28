@@ -3,46 +3,65 @@
 <html>
 
 <head>
-    <title>Thank you for registering for the Elite Sports Academy</title>
+    <title>CONGRATULATIONS, Registration complete for Elite Holiday Camp</title>
 </head>
 
 <body>
+@php
+    $campName = $registration->camp==='football'?'Football Camp':'Multi Sport Camp';
+    $locationName = $arrivalTime = $food = $collection = "";
+    if($registration->location === 'aldenham') {
+        $locationName = "Aldenham Grammar School";
+        $arrivalTime = "8:45am – 9.00am";
+        $collection = "3:15pm – 3:30pm";
+        $food = "Breakfast and Lunch will be provided as part of the registration. Just a water bottle will be required (refillable water is available)";
+    } elseif($registration->location === 'reigate') {
+        $locationName = "Reigate Grammar School Riyadh";
+        $arrivalTime = "8:15am – 8:30am";
+        $collection = "3:15pm – 3:30pm";
+        $food = "Please pack your child with sufficient food for 2 snacks, lunch and a water bottle (refillable water is available)";
+    } elseif($registration->location === 'kings') {
+        $locationName = "Kings College Riyadh";
+        $arrivalTime = "8:15am – 8:30am";
+        $collection = $registration->camp==='football'?'1.00pm – 1.15pm':'3:15pm – 3:30pm';
+        $food = "Please pack your child with sufficient food for 2 snacks, lunch and a water bottle (refillable water is available)";
+    }
+@endphp
 
 <p>Dear {{ $registration->parent_name }},</p>
-<p>Thank you for registering for the Elite Sports Academy {{ $registration->camp==='football'?'Football':'Multi Sport' }} Camp.</p>
-<p>We cannot wait to welcome your child this week, and you will find key details below: -</p>
+<p>Thank you for registering for the Elite Sports Academy {{$campName}} at {{ $locationName }}</p>
+<table>
+    <tr><td>Child name:</td><td>{{ $registration->child_name }}</td></tr>
+    <tr><td>Child age:</td><td>{{ $registration->age }}</td></tr>
+    <tr><td>Phone number:</td><td>{{ $registration->phone }}</td></tr>
+    <tr><td>Email address:</td><td>{{ $registration->email }}</td></tr>
+    <tr><td>Medical conditions:</td><td>{{ $registration->medical }}</td></tr>
+</table>
+<p><b>Holiday Camp Details:</b></p>
+<p>We are excited to welcome your child and would like to provide you with some important information:</p>
 <ul>
-    @if($registration->location === 'aldenham')
-        <li><b>Location:</b> Aldenham Grammar School (access via Gate 2)</li>
-        <li><b>Arrival Time:</b> Drop off time for the camp is between 8:15 am – 8:30 am (This is to enable us to complete registrations in a controlled environment).</li>
-        <li><b>Collection:</b> Pick up times between 3.15 – 3.30pm.</li>
-        <li><b>Lunch:</b> Lunch will be provided as part of the registration. Just a water bottle will be required (refillable water is available)</li>
-        <li><b>Clothing:</b> Comfortable sports clothes (T-shirt, shorts and trainers)</li>
-        <li><b>Toilet:</b> Children MUST be toilet trained, as we do not allow our coaches to enter bathrooms with children, due to safeguarding guidelines.</li>
-        <li><b>Ramadan:</b> As camp is falling during the holy month of Ramadan, food and drink will only be allowed in the cafeteria and that any children fasting will be separated during breaks.</li>
-        <li><b>What NOT to bring:</b> We kindly ask for no electronics or toys / Pokémon cards etc. to be bought to camp, as we will focus on sport for the duration of the day and want to ensure no children lose / damage their belongings.</li>
-    @elseif($registration->location === 'reigate')
-        <li><b>Location:</b> Reigate Grammar School Riyadh</li>
-        <li><b>Arrival Time:</b> Drop off time for the camp is between 8:15 am – 8:30 am (This is to enable us to complete registrations in a controlled environment).</li>
-        <li><b>Collection:</b> Pick up times between 3:15 pm – 3:30 pm.</li>
-        <li><b>Food and drink:</b> Please pack your child with sufficient food for 2 snacks, lunch and a water bottle (refillable water is available)</li>
-        <li><b>Clothing</b>: Comfortable sports clothes (T-shirt, shorts and trainers)</li>
-        <li><b>Toilet:</b> Children MUST be toilet trained, as we do not allow our coaches to enter bathrooms with children, due to safeguarding guidelines.</li>
-        <li><b>Ramadan:</b> As camp is falling during the holy month of Ramadan, food and drink will only be allowed in the cafeteria and that any children fasting will be separated during breaks.</li>
-        <li><b>What NOT to bring:</b> We kindly ask for no electronics or toys / Pokémon cards etc. to be bought to camp, as we will focus on sport for the duration of the day and want to ensure no children lose / damage their belongings.</li>
-    @elseif($registration->location === 'kings')
-        <li><b>Location:</b> Kings College Riyadh (access via Gate 2)</li>
-        <li><b>Arrival Time:</b> Drop off time for the camp is between 8:15 am – 8:30 am (This is to enable us to complete registrations in a controlled environment).</li>
-        <li><b>Collection:</b> Pick up times between 3:15 pm – 3:30 pm.</li>
-        <li><b>Food and drink:</b> Please pack your child with sufficient food for 2 snacks, lunch and a water bottle (refillable water is available)</li>
-        <li><b>Clothing</b>: Comfortable sports clothes (T-shirt, shorts and trainers)</li>
-        <li><b>Toilet:</b> Children MUST be toilet trained, as we do not allow our coaches to enter bathrooms with children, due to safeguarding guidelines.</li>
-        <li><b>Ramadan:</b> As camp is falling during the holy month of Ramadan, food and drink will only be allowed in the cafeteria and that any children fasting will be separated during breaks.</li>
-        <li><b>What NOT to bring:</b> We kindly ask for no electronics or toys / Pokémon cards etc. to be bought to camp, as we will focus on sport for the duration of the day and want to ensure no children lose / damage their belongings.</li>
-    @endif
+    <li><b>Dates:</b> Sunday 31st March – Thursday 4th April</li>
+    <li><b>Location:</b> {{ $locationName }}</li>
+    <li><b>Facilities:</b> Activities will be mainly indoor, the coaches may do a small amount of games outside if the weather is cool.</li>
+
+    <li><b>Arrival Time:</b> {{$arrivalTime}}</li>
+    <li><b>Collection:</b> {{$collection}}</li>
+
+    <li><b>Food and drink:</b> {{ $food }}</li>
+    <li><b>Clothing:</b> Comfortable sports clothes with trainers</li>
+    <li><b>Toilet:</b> Children MUST be toilet trained, as we do not allow our coaches to enter bathrooms with children, due to safeguarding guidelines.</li>
+    <li><b>Ramadan:</b> As camp is falling during the holy month of Ramadan, food and drink will only be allowed in the cafeteria and that any children fasting will be separated during breaks.</li>
+    <li><b>What NOT to bring:</b> We kindly ask for no electronics or toys / Pokemon cards etc. to be bought to camp, as we will focus on sport for the duration of the day and want to ensure no children lose / damage their belongings.</li>
 </ul>
-<p><b>To complete your payment and registration, please follow the link <a href="">here</a></b></p>
+
+<p>
+    <b>Our Team will be in touch to advise how to make payment</b>. We look forward to seeing you at the camp and hope your child has a great week ahead.
+    <br>
+    If you need to reach us, please contact: <a href="mailto:info@elitesportsksa.com">info@elitesportsksa.com</a> / <a href="https://wa.me/966502428451?text=HI%20there%21">+966 50 242 8451</a> (WhatsApp)
+</p>
 <br>
-<p>We look forward to seeing you at the camp and hope your child has a great week ahead.</p>
-<p>If you need to reach us, please contact: <a href="mailto:info@elitesportsksa.com">info@elitesportsksa.com</a></p>
+<p>Kind Regards,
+    <br>
+    The Elite Sports Academy Team
+</p>
 </body>

@@ -11,16 +11,28 @@
 <body>
 
 <h2>Registration Details</h2>
-<table>
-    <tr><td>Registration Number </td><td>{{ $registration->id }}</td></tr>
-    <tr><td>Parent Name</td><td>{{ $registration->parent_name }}</td></tr>
-    <tr><td>Child Name</td><td>{{ $registration->child_name }}</td></tr>
-    <tr><td>Age</td><td>{{ $registration->age }}</td></tr>
-    <tr><td>Medical Condition</td><td>{{ $registration->medical }}</td></tr>
-    <tr><td>Email</td><td>{{ $registration->email }}</td></tr>
-    <tr><td>Phone</td><td>{{ $registration->phone }}</td></tr>
-    <tr><td>Camp</td><td>{{ $registration->camp==='football'?'Football':'Multi Sport' }}</td></tr>
-    <tr><td>Location</td><td>
+<table border="1px solid">
+    <tr><th>Registration Number </th>
+        <th>Parent Name</th>
+        <th>Child Name</th>
+        <td>Age</td>
+        <td>Email</td>
+        <td>Phone</td>
+        <td>Medical Condition</td>
+        <td>Camp</td>
+        <td>Location</td>
+        <td>Registered On</td>
+    </tr>
+    <tr>
+        <td>{{ $registration->id }}</td>
+        <td>{{ $registration->parent_name }}</td>
+        <td>{{ $registration->child_name }}</td>
+        <td>{{ $registration->age }}</td>
+        <td>{{ $registration->medical }}</td>
+        <td>{{ $registration->email }}</td>
+        <td>{{ $registration->phone }}</td>
+        <td>{{ $registration->camp==='football'?'Football':'Multi Sport' }}</td>
+        <td>
             @if($registration->location === 'aldenham')
                 Aldenham Prep School, Riyadh
             @elseif($registration->location === 'reigate')
@@ -28,8 +40,9 @@
             @elseif($registration->location === 'kings')
                 Kings College Riyadh
             @endif
-        </td></tr>
-    <tr><td>Registered On</td><td>{{ $registration->created_at->format('Y-m-j H:i:s') }}</td></tr>
+        </td>
+        <td>{{ $registration->created_at->format('Y-m-j H:i:s') }}</td>
+    </tr>
 </table>
 
 
