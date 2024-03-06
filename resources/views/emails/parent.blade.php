@@ -55,7 +55,7 @@
     <li><b>What NOT to bring:</b> We kindly ask for no electronics or toys / Pokemon cards etc. to be bought to camp, as we will focus on sport for the duration of the day and want to ensure no children lose / damage their belongings.</li>
 </ul>
 
-<p>
+<p style="padding: 5px;background-color: #FFFF00;font-weight: bold;font-size:18px;font-weight: bold;">
     @if($paymentLink)
         <b>To complete your payment and registration, please follow the link <a href="{{ $paymentLink }}" style="color: blue;">here</a></b>.
     @else
