@@ -9,7 +9,7 @@
 <body>
 @php
     $campName = $registration->camp==='football'?'Football Camp':'Multi Sport Camp';
-    $locationName = $arrivalTime = $food = $collection = "";
+    $locationName = $arrivalTime = $food = $collection = $paymentLink = "";
     if($registration->location === 'beachhall') {
         $locationName = "Beech Hall School Riyadh";
         $arrivalTime = "8:45am – 9.00am";
@@ -25,6 +25,7 @@
         $arrivalTime = "8:15am – 8:30am";
         $collection = $registration->camp==='football'?'1.00pm – 1.15pm':'3:15pm – 3:30pm';
         $food = "Please pack your child with sufficient food for 2 snacks, lunch and a water bottle (refillable water is available)";
+        $paymentLink = "https://secure.telr.com/gateway/ql/EliteSportsAcademyLLC_838314.html";
     }
 @endphp
 
@@ -55,7 +56,13 @@
 </ul>
 
 <p>
-    <b>Our Team will be in touch to advise how to make payment</b>. We look forward to seeing you at the camp and hope your child has a great week ahead.
+    @if($paymentLink)
+        <b>To complete your payment and registration, please follow the link <a href="{{ $paymentLink }}" style="color: blue;">here</a></b>.
+    @else
+        <b>Our Team will be in touch to advise how to make payment</b>.
+    @endif
+
+    We look forward to seeing you at the camp and hope your child has a great week ahead.
     <br>
     If you need to reach us, please contact: <a href="mailto:info@elitesportsksa.com">info@elitesportsksa.com</a> / <a href="https://wa.me/966502428451?text=HI%20there%21">+966 50 242 8451</a> (WhatsApp)
 </p>
