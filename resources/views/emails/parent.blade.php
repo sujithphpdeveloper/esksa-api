@@ -61,7 +61,8 @@
     @else
         <b>Our Team will be in touch to advise how to make payment</b>.
     @endif
-
+</p>
+<p>
     We look forward to seeing you at the camp and hope your child has a great week ahead.
     <br>
     If you need to reach us, please contact: <a href="mailto:info@elitesportsksa.com">info@elitesportsksa.com</a> / <a href="https://wa.me/966502428451?text=HI%20there%21">+966 50 242 8451</a> (WhatsApp)
