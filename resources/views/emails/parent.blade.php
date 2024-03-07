@@ -26,7 +26,10 @@
         $arrivalTime = "8:15am – 8:30am";
         $collection = $registration->camp==='football'?'1.00pm – 1.15pm':'3:15pm – 3:30pm';
         $food = "Please pack your child with sufficient food for 2 snacks, lunch and a water bottle (refillable water is available)";
-        $paymentLink = "https://secure.telr.com/gateway/ql/EliteSportsAcademyLLC_838314.html";
+        if($registration->camp==='football')
+            $paymentLink = "https://secure.telr.com/gateway/ql/EliteSportsAcademyLLC_838314.html";
+        else
+            $paymentLink = "https://secure.telr.com/gateway/ql/EliteSportsAcademyLLC_838318.html";
     }
 @endphp
 
