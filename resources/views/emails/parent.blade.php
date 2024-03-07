@@ -12,7 +12,7 @@
     $locationName = $arrivalTime = $food = $collection = $paymentLink = "";
     if($registration->location === 'beachhall') {
         $locationName = "Beech Hall School Riyadh";
-        $arrivalTime = "8:45am – 9.00am";
+        $arrivalTime = "8.15am - 8.30am";
         $collection = "3:15pm – 3:30pm";
         $food = "Please pack your child with sufficient food for 2 snacks, lunch and a water bottle (refillable water is available)";
         $paymentLink = "https://secure.telr.com/gateway/ql/EliteSportsAcademyLLC_839522.html";
