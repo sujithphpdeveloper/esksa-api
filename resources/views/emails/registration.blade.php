@@ -21,6 +21,8 @@
         <td>Medical Condition</td>
         <td>Camp</td>
         <td>Location</td>
+        <td>Gender</td>
+        <td>Consent for Photo/Video</td>
         <td>Registered On</td>
     </tr>
     <tr>
@@ -41,6 +43,8 @@
                 Kings College Riyadh
             @endif
         </td>
+        <td>{{ $registration->gender }}</td>
+        <td>{{ $registration->photo_consent }}</td>
         <td>{{ $registration->created_at->format('Y-m-j H:i:s') }}</td>
     </tr>
 </table>

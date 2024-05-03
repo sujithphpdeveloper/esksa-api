@@ -18,22 +18,23 @@ class RegistrationController extends Controller
             'parent_name' => 'required|max:255',
             'child_name' => 'required|max:255',
             'age' => 'required',
-            'camp' => 'required|in:football,multi-sport',
+            'gender' => 'required',
+            'activity' => 'required|in:football,multi-sport,football-trials',
             'email' => 'required|email',
             'phone' => 'required',
-            'accept_terms' => 'required'
+            'accept_terms' => 'required',
+            'location' => 'required'
         ];
 
         $messages = [
-            'location_football.required' => 'Please select a location',
-            'location_multi.required' => 'Please select a location',
+            'location.required' => 'Please select a location',
             'accept_terms.required' => 'Please accept the terms and conditions'
         ];
-        if(isset($request->camp) && $request->camp === 'football') {
-            $validations['location_football'] = 'required';
-        } else {
-            $validations['location_multi'] = 'required';
-        }
+//        if(isset($request->camp) && $request->camp === 'football') {
+//            $validations['location_football'] = 'required';
+//        } else {
+//            $validations['location_multi'] = 'required';
+//        }
         $validator = Validator::make($request->all(), $validations, $messages);
 
         if ($validator->fails()) {
@@ -42,6 +43,7 @@ class RegistrationController extends Controller
                 'messages' => $validator->messages()
             ]);
         }
+
         $registration = new Registrations;
         $registration->parent_name = $request->parent_name;
         $registration->child_name = $request->child_name;
@@ -49,15 +51,17 @@ class RegistrationController extends Controller
         $registration->phone = $request->phone;
         $registration->age = $request->age;
         $registration->medical = $request->medical;
-        $registration->camp = $request->camp;
-        $registration->location = $request->location_multi;
-        if($request->camp == 'football') {
-            $registration->location = $request->location_football;
-        }
+        $registration->camp = $request->activity;
+        $registration->location = $request->location;
+        $registration->gender = $request->gender;
+        $registration->photo_consent = $request->photo_consent;
+//        if($request->camp == 'football') {
+//            $registration->location = $request->location_football;
+//        }
         $registration->save();
 
         Mail::to('info@elitesportsksa.com')->queue(new NotifyMail($registration));
-        Mail::to('tomkingmarketing@gmail.com')->queue(new NotifyMail($registration));
+        //Mail::to('tomkingmarketing@gmail.com')->queue(new NotifyMail($registration));
         //Mail::to('sujith.phpdeveloper@gmail.com')->queue(new NotifyMail($registration));
         Mail::to($registration->email)->queue(new NotifyParent($registration));
         return response()->json([
