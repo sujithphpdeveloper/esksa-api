@@ -9,7 +9,22 @@
 </head>
 
 <body>
+@php
+        $campName = '';
+        switch($registration->camp) {
+            case 'football':
+                $campName = 'Football Camp';
+                break;
 
+            case 'football-trials':
+                $campName = 'Football Trials';
+                break;
+
+            case 'multi-sport':
+                $campName = 'Multi Sport Camp';
+                break;
+        }
+@endphp
 <h2>Registration Details</h2>
 <table style="border:1px solid #000000;" cellpadding="2" cellspacing="0">
     <tr><th>Registration Number </th>
@@ -33,7 +48,9 @@
         <td>{{ $registration->email }}</td>
         <td>{{ $registration->phone }}</td>
         <td>{{ $registration->medical }}</td>
-        <td>{{ $registration->camp==='football'?'Football':'Multi Sport' }}</td>
+        <td>
+            {{ $campName }}
+        </td>
         <td>
             @if($registration->location === 'beachhall')
                 Beech Hall School Riyadh
