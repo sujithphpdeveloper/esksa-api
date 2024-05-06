@@ -8,7 +8,22 @@
 
 <body>
 @php
-    $campName = $registration->camp==='football'?'Football Camp':'Multi Sport Camp';
+    $campName = '';
+
+    switch($registration->camp) {
+        case 'football':
+            $campName = 'Football Camp';
+            break;
+
+        case 'football-trials':
+            $campName = 'Football Trials';
+            break;
+
+        case 'multi-sport':
+            $campName = 'Multi Sport Camp';
+            break;
+    }
+
     $locationName = $arrivalTime = $food = $collection = $paymentLink = "";
     if($registration->location === 'beachhall') {
         $locationName = "Beech Hall School Riyadh";
