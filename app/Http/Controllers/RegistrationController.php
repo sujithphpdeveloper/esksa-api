@@ -19,11 +19,12 @@ class RegistrationController extends Controller
             'child_name' => 'required|max:255',
             'age' => 'required',
             'gender' => 'required',
-            'activity' => 'required|in:football,multi-sport,football-trials',
+            'activity' => 'required|in:football,multisport,football-trials',
             'email' => 'required|email',
             'phone' => 'required',
             'accept_terms' => 'required',
-            'location' => 'required'
+            'location' => 'required',
+            'weeks' => 'required'
         ];
 
         $messages = [
@@ -55,6 +56,7 @@ class RegistrationController extends Controller
         $registration->location = $request->location;
         $registration->gender = $request->gender;
         $registration->photo_consent = $request->photo_consent;
+        $registration->attributes = array('weeks' => $request->weeks);
 //        if($request->camp == 'football') {
 //            $registration->location = $request->location_football;
 //        }

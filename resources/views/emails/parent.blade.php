@@ -19,7 +19,7 @@
             $campName = 'Football Trials';
             break;
 
-        case 'multi-sport':
+        case 'multisport':
             $campName = 'Multi Sport Camp';
             break;
     }
@@ -30,22 +30,22 @@
         $arrivalTime = "8.15am - 8.30am";
         $collection = "3:15pm – 3:30pm";
         $food = "Please pack your child with sufficient food for 2 snacks, lunch and a water bottle (refillable water is available)";
-        $paymentLink = "https://secure.telr.com/gateway/ql/EliteSportsAcademyLLC_839522.html";
+        $paymentLink = "";
     } elseif($registration->location === 'reigate') {
         $locationName = "Reigate Grammar School Riyadh";
         $arrivalTime = "8:15am – 8:30am";
         $collection = "3:15pm – 3:30pm";
         $food = "Please pack your child with sufficient food for 2 snacks, lunch and a water bottle (refillable water is available)";
-        $paymentLink = "https://secure.telr.com/gateway/ql/EliteSportsAcademyLLC_844348.html";
+        $paymentLink = "";
     } elseif($registration->location === 'kings') {
         $locationName = "King's College Riyadh";
         $arrivalTime = "8:15am – 8:30am";
         $collection = $registration->camp==='football'?'1.00pm – 1.15pm':'3:15pm – 3:30pm';
         $food = "Please pack your child with sufficient food for 2 snacks, lunch and a water bottle (refillable water is available)";
         if($registration->camp==='football')
-            $paymentLink = "https://secure.telr.com/gateway/ql/EliteSportsAcademyLLC_889734.html";
+            $paymentLink = "";
         else
-            $paymentLink = "https://secure.telr.com/gateway/ql/EliteSportsAcademyLLC_889736.html";
+            $paymentLink = "";
     }
 @endphp
 
@@ -76,9 +76,9 @@
     <p><b>Holiday Camp Details:</b></p>
     <p>We are excited to welcome your child and would like to provide you with some important information:</p>
     <ul>
-        <li><b>Dates:</b> Sunday 12th May – Monday 13th May</li>
+        <li><b>Dates:</b> {{ $registration->attributes }}</li>
         <li><b>Location:</b> {{ $locationName }}</li>
-        <li><b>Facilities:</b> Activities will be mainly indoor, the coaches may do a small amount of games outside if the weather is cool.</li>
+        <li><b>Facilities:</b> Activities will be mainly indoor, the coaches may do a small amount of games outside if the weather is cool enough in the morning.</li>
 
         <li><b>Arrival Time:</b> {{$arrivalTime}}</li>
         <li><b>Collection:</b> {{$collection}}</li>
@@ -94,7 +94,7 @@
         @if($paymentLink)
             <span style="padding: 5px;background-color: #FFFF00;">To complete your payment and registration, please follow the link </span><a href="{{ $paymentLink }}" style="color: blue;">here</a>
         @else
-            <b>Our Team will be in touch to advise how to make payment</b>.
+            <b> Please note that we will send you an email shortly with the payment information inclusive of any offers if applicable.</b>.
         @endif
     </p>
     <p>

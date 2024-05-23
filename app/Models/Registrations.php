@@ -11,5 +11,8 @@ class Registrations extends Model
 
     protected $table = 'registrations';
 
+    protected $casts = [
+        'attributes' => 'json',
+    ];
 
 }
