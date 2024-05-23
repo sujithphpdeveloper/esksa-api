@@ -20,7 +20,7 @@
                 $campName = 'Football Trials';
                 break;
 
-            case 'multi-sport':
+            case 'multisport':
                 $campName = 'Multi Sport Camp';
                 break;
         }
