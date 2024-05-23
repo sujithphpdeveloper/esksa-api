@@ -76,7 +76,7 @@
     <p><b>Holiday Camp Details:</b></p>
     <p>We are excited to welcome your child and would like to provide you with some important information:</p>
     <ul>
-        <li><b>Dates:</b> {{ $registration->attributes }}</li>
+        <li><b>Dates:</b> {{ implode(', ', $registration->attributes['weeks']) }}</li>
         <li><b>Location:</b> {{ $locationName }}</li>
         <li><b>Facilities:</b> Activities will be mainly indoor, the coaches may do a small amount of games outside if the weather is cool enough in the morning.</li>
 

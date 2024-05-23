@@ -40,6 +40,7 @@
         <td>Consent for Photo/Video</td>
         <td>Registered On</td>
     </tr>
+
     <tr>
         <td>{{ $registration->id }}</td>
         <td>{{ $registration->parent_name }}</td>
@@ -63,6 +64,10 @@
         <td>{{ $registration->gender }}</td>
         <td>{{ $registration->photo_consent }}</td>
         <td>{{ $registration->created_at->format('Y-m-j H:i:s') }}</td>
+    </tr>
+    <tr>
+        <td>Weeks</td>
+        <td colspan="10">{{ implode(', ', $registration->attributes['weeks']) }}</td>
     </tr>
 </table>
 
