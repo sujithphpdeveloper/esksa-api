@@ -57,6 +57,10 @@
                 Beech Hall School Riyadh
             @elseif($registration->location === 'reigate')
                 Reigate Grammar School Riyadh
+            @elseif($registration->location === 'british1')
+                British International School Riyadh - Diplomatic Quarter
+            @elseif($registration->location === 'british2')
+                British International School Riyadh- Al Hamra
             @elseif($registration->location === 'kings')
                 Kings College Riyadh
             @endif

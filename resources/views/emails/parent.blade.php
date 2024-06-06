@@ -37,6 +37,18 @@
         $collection = "3:15pm – 3:30pm";
         $food = "Please pack your child with sufficient food for 2 snacks, lunch and a water bottle (refillable water is available)";
         $paymentLink = "";
+    } elseif($registration->location === 'british1') {
+        $locationName = "British International School Riyadh - Diplomatic Quarter";
+        $arrivalTime = "8:15am – 8:30am";
+        $collection = "3:15pm – 3:30pm";
+        $food = "Please pack your child with sufficient food for 2 snacks, lunch and a water bottle (refillable water is available)";
+        $paymentLink = "";
+    } elseif($registration->location === 'british2') {
+        $locationName = "British International School Riyadh- Al Hamra";
+        $arrivalTime = "8:15am – 8:30am";
+        $collection = "3:15pm – 3:30pm";
+        $food = "Please pack your child with sufficient food for 2 snacks, lunch and a water bottle (refillable water is available)";
+        $paymentLink = "";
     } elseif($registration->location === 'kings') {
         $locationName = "King's College Riyadh";
         $arrivalTime = "8:15am – 8:30am";
